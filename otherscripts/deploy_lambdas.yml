@@ -78,8 +78,9 @@ Resources:
   LambdaFunction2:
     Type: AWS::Serverless::Function
     Properties:
+      CodeUri: s3://picsearch-lambdafunctions/lambda_function_2.zip
       MemorySize: 128
-      Timeout: 10
+      Timeout: 120
       Handler: lf2.lambda_handler
       Runtime: python3.12
       Architectures:
@@ -91,6 +92,8 @@ Resources:
           - Effect: Allow
             Action:
               - lex:*
+              - s3:*
+              - es:*
             Resource: '*'
           - Effect: Allow
             Action:
@@ -110,9 +113,4 @@ Resources:
           Properties:
             Path: /search
             Method: GET
-        Api2:
-          Type: Api
-          Properties:
-            Path: /search
-            Method: OPTIONS
       RuntimeManagementConfig: {}
