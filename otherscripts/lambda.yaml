@@ -32,6 +32,7 @@ Resources:
                 - 'secretsmanager:*'
                 - 'rekognition:*'
                 - 'lambda:*'
+                - 'lex:*'
                 Resource: '*'
 
   # Lambda Functions
