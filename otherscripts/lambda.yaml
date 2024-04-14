@@ -30,7 +30,7 @@ Resources:
     Properties:
       Architectures: ['x86_64']
       Timeout: 60
-      FunctionName: "index-photos-test"
+      FunctionName: "index-photos-L1"
       Runtime: "python3.12"
       Handler: "lf1.lambda_handler"
       Code:
@@ -43,16 +43,59 @@ Resources:
     Properties:
       Architectures: ['x86_64']
       Timeout: 60
-      FunctionName: "search-photos-test"
+      FunctionName: "search-photos-L2"
       Runtime: "python3.12"
       Handler: "lf2.lambda_handler"
       Code:
         S3Bucket: "picsearch-lambdafunctions"
         S3Key: "lambda_function_2.zip"
       Role: !GetAtt LambdaExecutionRole.Arn
+  
+  #Image S3 Bucket Policy
+  ImageBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref ImageBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Action:
+              - 's3:GetObject'
+            Effect: Allow
+            Resource: !Join
+              - ''
+              - - 'arn:aws:s3:::'
+                - !Ref ImageBucket
+                - /*
+            Principal: '*'
+  
+  # S3 Bucket
+  ImageBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: "cloud-assignment-image-bucket-cdb9649"
+      NotificationConfiguration: 
+        LambdaConfigurations:
+          Event: s3:ObjectCreated:*
+          Function: !GetAtt IndexPhotosLambdaFunction.Arn
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: False
+        BlockPublicPolicy: False
+        IgnorePublicAcls: False
+        RestrictPublicBuckets: False
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders: 
+              - "*"
+            AllowedMethods: 
+              - "GET"
+            AllowedOrigins: 
+              - "*"
 
 Outputs:
   IndexPhotosLambdaFunctionArn:
     Value: !GetAtt IndexPhotosLambdaFunction.Arn
   SearchPhotosLambdaFunction11Arn:
     Value: !GetAtt SearchPhotosLambdaFunction.Arn
+  PhotoBucketName:
+    Value: !Ref ImageBucket

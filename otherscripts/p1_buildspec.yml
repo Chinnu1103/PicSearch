@@ -36,4 +36,4 @@ artifacts:
     - lambdafunctions/lambda_function_1.zip
     - lambdafunctions/lambda_function_2.zip
     - otherscripts/lambda.yaml
-    - otherscripts/buckets.yaml
+    - otherscripts/frontend.yaml

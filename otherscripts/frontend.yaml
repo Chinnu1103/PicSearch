@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Cloud Assignment Photo Album Web Application Template
+
+Resources:
+  #Frontend S3 Bucket Policy
+  FrontendBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref FrontendBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Action:
+              - 's3:GetObject'
+            Effect: Allow
+            Resource: !Join
+              - ''
+              - - 'arn:aws:s3:::'
+                - !Ref FrontendBucket
+                - /*
+            Principal: '*'
+
+
+  FrontendBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: "cloud-assignment-frontend-bucket-rc4920"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: False
+        BlockPublicPolicy: False
+        IgnorePublicAcls: False
+        RestrictPublicBuckets: False
+      WebsiteConfiguration: 
+        IndexDocument: "index.html"
+
+
+Outputs:
+  FrontendBucketName:
+    Value: !Ref FrontendBucket
+  FrontendBucketNameURL:
+    Value: !GetAtt FrontendBucket.WebsiteURL
