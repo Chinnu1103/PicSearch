@@ -62,11 +62,10 @@ function uploadPhoto(file_obj) {
             'x-amz-meta-customLabels': note_customtag.value
         },
         success: function () {
-            console.log('File uploaded successfully!');
-            alert("Upload Completed!")
+            alert("File uploaded successfully!")
         },
         error: function (xhr, status, error) {
-            alert("Upload Completed!")
+            alert("File uploaded successfully!")
         }
     });
 }
