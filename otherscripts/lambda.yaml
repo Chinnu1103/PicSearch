@@ -80,10 +80,6 @@ Resources:
                 - !Ref ImageBucket
                 - /*
             Principal: '*'
-          - Action:
-              - 'lambda:InvokeFunction'
-            Effect: Allow
-            Resource: !GetAtt IndexPhotosLambdaFunction.Arn
   
   # S3 Bucket
   ImageBucket:
