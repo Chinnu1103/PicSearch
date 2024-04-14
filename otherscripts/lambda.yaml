@@ -90,10 +90,6 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: "image-bucket-cdb9649"
-      NotificationConfiguration: 
-        LambdaConfigurations:
-          - Event: s3:ObjectCreated:*
-            Function: !GetAtt IndexPhotosLambdaFunction.Arn
       PublicAccessBlockConfiguration:
         BlockPublicAcls: False
         BlockPublicPolicy: False
