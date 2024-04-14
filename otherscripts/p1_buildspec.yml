@@ -28,9 +28,11 @@ phases:
       - pip install -r requirements.txt -t ./
       - zip -r ../lambda_function_2.zip *
       - aws s3 cp ../lambda_function_2.zip s3://$LAMBDA_BUCKET --output=text
+      - cd ../otherscripts
+      - aws s3 cp deploy_lambdas.yml s3://$LAMBDA_BUCKET --output=text
 
 artifacts:
   files:
-    - lambda_function_1.zip
-    - lambda_function_2.zip
+    - lambdafunctions/lambda_function_1.zip
+    - lambdafunctions/lambda_function_2.zip
     - otherscripts/deploy_lambdas.yml
