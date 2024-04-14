@@ -5,6 +5,7 @@ from datetime import datetime
 import uuid
 import os
 
+
 # AWS services clients
 region = 'us-west-2'
 s3_client = boto3.client('s3')
