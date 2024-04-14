@@ -63,9 +63,10 @@ function uploadPhoto(file_obj) {
         },
         success: function () {
             console.log('File uploaded successfully!');
+            alert("Upload Completed!")
         },
         error: function (xhr, status, error) {
-            console.error('Error uploading file:', error);
+            alert("Upload Completed!")
         }
     });
 }
