@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Photo Search</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style1.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="apigClient.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header class="main-header">
+            <h1 class="display-2">PicSearch</h1>
+        </header>
+        <div class="card">
+            <div class="d-flex flex-row">
+                <div class="col">
+                    <p class="h3 my-2">UPLOAD YOUR PICTURE</p>
+                </div>
+                <div class="col px-0">
+                    <button class="btn" id="upload_button" type="submit" onclick="uploadPhoto(file)">Upload</button>
+                </div>
+            </div>
+            <div class="drop_box">
+                <label class="h5" for="file_name">Select Image to Upload</label>
+                <br/>
+                <div class="row pl-3">
+                    <!-- The file input is hidden and triggered by the "Choose File" button -->
+                    <input id="file_name" type="text" name="filaname" placeholder="  No File Selected" disabled>
+                    <input id="file_path" type="file" name="file" hidden accept="image/jpeg, image/png">
+                    <!-- The "Choose File" button -->
+                    <button id="choose_btn" class="btn my-0">Choose File</button>
+                </div>
+                <label class="h5 mt-3" for="note_customtag">Enter custom labels</label>
+                <input placeholder="Enter comma separated values" type="text" class="form-control" id="note_customtag">
+                <!-- Area where the selected file name and custom tag input will be displayed -->
+                <div id="file-display-area"></div>
+            </div>
+        </div>
+        <hr class="mt-5"/>
+        <div class="search-section">
+            <p class="h4">ENTER YOUR SEARCH QUERY</p>
+            <div class="search-bar">
+                <input type="text" class="search-input" id="note-textarea" placeholder="E.g: Show me pictures of dogs">
+                <button class="search-btn" onclick="searchPhoto()">Search</button>
+            </div>
+        </div>
+        <div class="banner-section grid_layout pb-5" id="img-container">
+            <p class="mb-5 text-center h5" id="displaytext">Your images will be displayed here</p>
+        </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="render.js"></script>
+<script src="script.js"></script>
+<script src="apigClient.js"></script>
+</body>
+
+</html>

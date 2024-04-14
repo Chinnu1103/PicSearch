@@ -1,0 +1,160 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #e0edff;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.display-2 {
+    color: #0c5b6a !important;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.heading h1 {
+    font-size: 2.8rem;
+    color: #102a43;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 700;
+}
+
+#file_name, #note_customtag {
+    height: 50px;
+}
+
+#choose_btn {
+    height: 50px;
+}
+
+.card {
+    background: #fe7272;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-section {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.search-bar {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input {
+    flex: 1;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    transition: all 0.3s;
+    width: 100%; /* Full width of parent */
+    max-width: 500px; /* Maximum width */
+}
+
+.search-btn {
+    padding: 15px 20px;
+    border: none;
+    background-color: #7240cf;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+}
+
+.search-btn:hover {
+    background-color: #9d46e0;
+}
+
+.drop_box {
+    padding: 20px;
+    border: 2px dashed #ddd;
+    background-color: #fdd4d4;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+#upload_button {
+    float: right;
+}
+
+.drop_box p {
+    margin: 15px 0;
+    color: #555;
+}
+
+.btn {
+    background-color: #069749;
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background-color: #54d49a;
+}
+
+.banner-section img {
+    width: 100%;
+    max-width: 400px;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+#displaytext {
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.grid_layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust the minmax value as per your preference */
+    gap: 10px; /* Adjust the gap between images */
+}
+
+/* Responsive layout */
+@media screen and (max-width: 768px) {
+    .heading h1 {
+        font-size: 2.2rem;
+    }
+
+    .card {
+        margin: 10px;
+    }
+
+    .banner-section img {
+        max-width: 100%;
+    }
+}
