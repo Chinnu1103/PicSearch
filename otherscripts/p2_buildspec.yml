@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Initiating build process..."
+  build:
+    commands:
+      - echo "No compilation needed for static content."
+  post_build:
+    commands:
+      - echo "Build process and artifact packaging finished."
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: '../frontend' 
