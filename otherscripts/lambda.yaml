@@ -33,7 +33,9 @@ Resources:
       FunctionName: "index-photos-test"
       Runtime: "python3.12"
       Handler: "lf1.lambda_handler"
-      CodeUri: s3://picsearch-lambdafunctions/lambda_function_1.zip
+      Code:
+        S3Bucket: "picsearch-lambdafunctions"
+        S3Key: "lambda_function_1.zip"
       Role: !GetAtt LambdaExecutionRole.Arn
 
   SearchPhotosLambdaFunction:
@@ -44,7 +46,9 @@ Resources:
       FunctionName: "search-photos-test"
       Runtime: "python3.12"
       Handler: "lf2.lambda_handler"
-      CodeUri: s3://picsearch-lambdafunctions/lambda_function_2.zip
+      Code:
+        S3Bucket: "picsearch-lambdafunctions"
+        S3Key: "lambda_function_2.zip"
       Role: !GetAtt LambdaExecutionRole.Arn
 
 Outputs:
