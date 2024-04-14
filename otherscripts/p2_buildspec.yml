@@ -10,8 +10,9 @@ phases:
   post_build:
     commands:
       - echo "Build process and artifact packaging finished."
+      - cd
 
 artifacts:
   files:
     - '**/*'
-  base-directory: '../frontend' 
+  base-directory: 'frontend' 
