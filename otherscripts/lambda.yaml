@@ -68,6 +68,13 @@ Resources:
                 - !Ref ImageBucket
                 - /*
             Principal: '*'
+          - Action:
+              - 'lambda:InvokeFunction'
+            Effect: Allow
+            Resource: !Join
+              - ''
+              - - 'arn:aws:lambda:::'
+                - !Ref IndexPhotosLambdaFunction
   
   # S3 Bucket
   ImageBucket:
