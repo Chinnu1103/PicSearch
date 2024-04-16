@@ -18,6 +18,7 @@ def get_photos(labels):
     term_set = [{"term": {"labels": val}} for val in labels]
     
     query_body = {
+        "size": 20,
         "query": {
             "bool": {
                 "must": term_set
