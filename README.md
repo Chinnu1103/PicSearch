@@ -19,8 +19,10 @@ Components:
 8. Code Pipelines - P1 pushes lambda code to their respective functions, and P2 pushes frontend code to S3 bucket.
 9. CloudFormation Template - Creates all the other modules using a single template.
  
-  
+### YouTube Video: https://youtu.be/9bMt2MLiqPs  
 
+## Website:
+http://search-application-b1.s3-website-us-west-2.amazonaws.com/
 
 ![image](https://github.com/Chinnu1103/PicSearch/assets/32939338/19c3284a-168c-400a-8210-c61eae32e7f1)  
 
